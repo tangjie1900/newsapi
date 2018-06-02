@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cout.newsapi.mapper.NewsdetailMapper">
+    <sql id="slcolmun">
+      id,groupid,title,content,publishtime,newssource,commentcount,sourceimage
+    </sql>
+
+    <select id="findNewsdetailPage" resultType="cn.cout.newsapi.model.Newsdetail">
+        SELECT
+          id,publishtime,newssource,sourceimage
+        FROM
+          newsdetail
+    </select>
+
+    <select id="findNewsContent" resultType="cn.cout.newsapi.model.Newsdetail">
+        SELECT
+          <include refid="slcolmun"/>
+        FROM
+          newsdetail
+        WHERE groupid=#{groupid}
+    </select>
+</mapper>
