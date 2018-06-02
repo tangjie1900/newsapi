@@ -5,6 +5,7 @@ import cn.cout.newsapi.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,12 +16,19 @@ public class NewsController {
 
     //http://localhost:8026/getNewsList?category=1&pageCount
     @RequestMapping("/getNewsList")
+    @ResponseBody
     public void getNewsList(@ModelAttribute NewsRequestEntity newsReqEntity) {
         newsService.queryPageLists(newsReqEntity);
     }
 
     @RequestMapping("/getNewsDetail")
     public void getNewsDetail() {
+
+    }
+
+    @RequestMapping("/searchnews")
+    @ResponseBody
+    public void searchNews() {
 
     }
 

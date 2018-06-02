@@ -4,4 +4,6 @@ import cn.cout.newsapi.entity.NewsRequestEntity;
 
 public interface NewsService {
     void queryPageLists(NewsRequestEntity newsReqEntity);
+
+
 }

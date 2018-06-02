@@ -23,6 +23,4 @@ public class NewsdetailController {
         HashMap hashMap = newsdetailService.findNewsContent(newsdetailReqEntity);
         return new ResponseEntity<>(hashMap, HttpStatus.OK);
     }
-
-
 }
