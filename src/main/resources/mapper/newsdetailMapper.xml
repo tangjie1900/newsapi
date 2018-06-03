@@ -12,6 +12,7 @@
           id,publishtime,newssource,sourceimage
         FROM
           newsdetail
+        ORDER  BY  id
     </select>
 
     <select id="findNewsContent" resultType="cn.cout.newsapi.model.Newsdetail">

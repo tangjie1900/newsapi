@@ -11,5 +11,4 @@ public interface NewsMapper {
 
 	List<News> searchNewsByKeyWords(String keyWords);
 
-//	Page<News> findNewsByPage(int category);
 }

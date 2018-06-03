@@ -33,9 +33,9 @@
 
     <select id="searchNewsByKeyWords" parameterType="java.lang.String" resultType="cn.cout.newsapi.model.News">
         SELECT
-        <include refid="newsColumn"/>
-        FROM news n
-        WHERE n.title like #{keyWords}
+        id,groupid,tag,imageurl,title,displayurl,category
+        FROM news
+        WHERE title like #{keyWords}
     </select>
 
     <!--SELECT-->
@@ -45,5 +45,10 @@
     <!--on n.groupid=d.groupid-->
     <!--WHERE n.title !='' AND n.category = #{category}-->
     <!--ORDER BY n.id-->
+
+    <!--SELECT-->
+    <!--n.id,n.groupid,n.tag,n.imageurl,n.title,n.displayurl,n.category-->
+    <!--FROM news n-->
+    <!--WHERE n.title like #{keyWords}-->
 
 </mapper>

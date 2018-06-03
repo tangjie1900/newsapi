@@ -15,26 +15,39 @@ import java.util.HashMap;
 @RestController
 public class NewsController {
 
-	@Autowired
-	private NewsService newsService;
+    @Autowired
+    private NewsService newsService;
 
-	//http://localhost:8026/getNewsList?category=1&pageCount
-	@RequestMapping("/getNewsList")
-	@ResponseBody
-	public void getNewsList(@ModelAttribute NewsRequestEntity newsReqEntity) {
-		newsService.queryPageLists(newsReqEntity);
-	}
 
-	@RequestMapping("/getNewsDetail")
-	public void getNewsDetail() {
+    /**
+     * 获取新闻分类的10条数据
+     * <p>
+     * http://localhost:8026/getNewsList?category=1&pageCount=2
+     */
+    @RequestMapping("/getNewsList")
+    @ResponseBody
+    public void getNewsList(@ModelAttribute NewsRequestEntity newsReqEntity) {
+        newsService.queryPageLists(newsReqEntity);
+    }
 
-	}
+    /**
+     * 搜索新闻
+     * <p>
+     * http://localhost:8026/searchnews?keyWords=有的
+     */
+    @RequestMapping("/searchnews")
+    @ResponseBody
+    public ResponseEntity searchNews(String keyWords) {
+        HashMap<String, Object> hashMap = newsService.searchNewsByInfos(keyWords);
+        return new ResponseEntity(hashMap, HttpStatus.OK);
+    }
 
-	@RequestMapping("/searchnews")
-	@ResponseBody
-	public ResponseEntity searchNews(String keyWords) {
-		HashMap<String, Object> hashMap = newsService.searchNewsByInfos(keyWords);
-		return new ResponseEntity(hashMap, HttpStatus.OK);
-	}
+
+    @RequestMapping("/getAllPicAndTexts")
+    @ResponseBody
+    public ResponseEntity getAllPicAndTexts() {
+        HashMap<String, Object> hashMap = newsService.getAllPictureAndText();
+        return new ResponseEntity(hashMap, HttpStatus.OK);
+    }
 
 }
