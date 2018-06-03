@@ -3,7 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.cout.newsapi.mapper.NewsMapper">
-    <resultMap id="newslists" type="cn.cout.newsapi.model.NewsModel">
+    <sql id="newsColumn">
+            n.id,n.groupid,n.tag,n.imageurl,n.title,n.displayurl,n.category
+    </sql>
+
+    <resultMap id="newslists" type="cn.cout.newsapi.model.News">
         <id column="id" property="id"/>
         <result column="groupid" property="groupid"/>
         <result column="tag" property="tag"/>
@@ -18,12 +22,28 @@
         </association>
     </resultMap>
 
-    <select id="findNewsByPage" resultMap="newslists">
+    <select id="findNewsByPage" resultType="cn.cout.newsapi.model.News">
         SELECT
-          n.id,n.groupid,n.tag,n.imageurl,n.title,n.displayurl,n.category,d.publishtime,d.newssource,d.sourceimage
-        FROM news n  INNER  JOIN  newsdetail d
-          on n.groupid=d.groupid
-        WHERE  n.title !='' AND n.category = #{category}
-          ORDER  BY n.id
+        <include refid="newsColumn"/>
+        ,d.publishtime,d.newssource,d.sourceimage
+        FROM news n INNER JOIN newsdetail d
+        on n.groupid=d.groupid
+        ORDER BY n.id
     </select>
+
+    <select id="searchNewsByKeyWords" parameterType="java.lang.String" resultType="cn.cout.newsapi.model.News">
+        SELECT
+        <include refid="newsColumn"/>
+        FROM news n
+        WHERE n.title like #{keyWords}
+    </select>
+
+    <!--SELECT-->
+    <!--<include refid="newsColumn"/>-->
+    <!--,d.publishtime,d.newssource,d.sourceimage-->
+    <!--FROM news n INNER JOIN newsdetail d-->
+    <!--on n.groupid=d.groupid-->
+    <!--WHERE n.title !='' AND n.category = #{category}-->
+    <!--ORDER BY n.id-->
+
 </mapper>

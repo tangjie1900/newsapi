@@ -10,7 +10,7 @@ public class Newsdetail {
 
     private String content;
 
-    private Integer publishtime;
+    private Long publishtime;
 
     private String newssource;
 
@@ -50,11 +50,11 @@ public class Newsdetail {
         this.content = content;
     }
 
-    public Integer getPublishtime() {
+    public Long getPublishtime() {
         return publishtime;
     }
 
-    public void setPublishtime(Integer publishtime) {
+    public void setPublishtime(Long publishtime) {
         this.publishtime = publishtime;
     }
 

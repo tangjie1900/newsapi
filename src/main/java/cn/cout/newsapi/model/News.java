@@ -3,7 +3,7 @@ package cn.cout.newsapi.model;
 import javax.persistence.Column;
 import javax.persistence.Id;
 
-public class NewsModel {
+public class News {
 // id behottime groupid tag abstractnews imageurl title displayurl category
 
     private int id;

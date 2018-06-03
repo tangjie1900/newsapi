@@ -8,6 +8,4 @@ public interface NewsdetailService {
     void findbyPage();
 
     HashMap<String, Object> findNewsContent(NewsdetailRequestEntity newsdetailReqEntity);
-
-
 }
