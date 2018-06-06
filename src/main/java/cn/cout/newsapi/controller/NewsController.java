@@ -1,8 +1,12 @@
 package cn.cout.newsapi.controller;
 
 import cn.cout.newsapi.entity.NewsRequestEntity;
+import cn.cout.newsapi.entity.Openscreenimage;
+import cn.cout.newsapi.entity.ResultVo;
 import cn.cout.newsapi.service.NewsService;
+import cn.cout.newsapi.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,7 +22,6 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
-
     /**
      * 获取新闻分类的10条数据
      * <p>
@@ -26,8 +29,10 @@ public class NewsController {
      */
     @RequestMapping("/getNewsList")
     @ResponseBody
-    public void getNewsList(@ModelAttribute NewsRequestEntity newsReqEntity) {
-        newsService.queryPageLists(newsReqEntity);
+    public ResultVo getNewsList(@ModelAttribute NewsRequestEntity newsReqEntity) {
+        HashMap<String, Object> hashMap = newsService.queryPageLists(newsReqEntity);
+        ResultVo resultVo = ResultUtils.getSuccessResult(hashMap);
+        return resultVo;
     }
 
     /**
@@ -37,17 +42,19 @@ public class NewsController {
      */
     @RequestMapping("/searchnews")
     @ResponseBody
-    public ResponseEntity searchNews(String keyWords) {
+    public ResultVo searchNews(String keyWords) {
         HashMap<String, Object> hashMap = newsService.searchNewsByInfos(keyWords);
-        return new ResponseEntity(hashMap, HttpStatus.OK);
+        ResultVo resultVo = ResultUtils.getSuccessResult(hashMap);
+        return resultVo;
     }
 
 
     @RequestMapping("/getAllPicAndTexts")
     @ResponseBody
-    public ResponseEntity getAllPicAndTexts() {
+    public ResultVo getAllPicAndTexts() {
         HashMap<String, Object> hashMap = newsService.getAllPictureAndText();
-        return new ResponseEntity(hashMap, HttpStatus.OK);
+        ResultVo resultVo = ResultUtils.getSuccessResult(hashMap);
+        return resultVo;
     }
 
 }

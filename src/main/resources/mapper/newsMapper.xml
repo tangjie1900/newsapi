@@ -16,27 +16,35 @@
         <result column="displayurl" property="displayurl"/>
         <result column="category" property="category"/>
         <association property="newsdetail" javaType="cn.cout.newsapi.model.Newsdetail">
+            <result column="groupid" property="groupid"/>
             <result column="publishtime" property="publishtime"/>
             <result column="newssource" property="newssource"/>
             <result column="sourceimage" property="sourceimage"/>
+            <result column="commentcount" property="commentcount"/>
         </association>
     </resultMap>
 
-    <select id="findNewsByPage" resultType="cn.cout.newsapi.model.News">
+    <!--resultType="cn.cout.newsapi.model.News"-->
+    <select id="findNewsByPage" resultMap="newslists">
         SELECT
         <include refid="newsColumn"/>
-        ,d.publishtime,d.newssource,d.sourceimage
+        ,d.groupid,d.publishtime,d.newssource,d.sourceimage,d.commentcount
         FROM news n INNER JOIN newsdetail d
         on n.groupid=d.groupid
-        ORDER BY n.id
+        WHERE n.category=#{category}
+        ORDER BY n.id LIMIT #{startrow},#{limitcount}
     </select>
 
-    <select id="searchNewsByKeyWords" parameterType="java.lang.String" resultType="cn.cout.newsapi.model.News">
+    <select id="searchNewsByKeyWords" parameterType="java.lang.String" resultMap="newslists">
         SELECT
-        id,groupid,tag,imageurl,title,displayurl,category
-        FROM news
-        WHERE title like #{keyWords}
+        <include refid="newsColumn"/>
+        ,d.publishtime,d.newssource,d.sourceimage,d.commentcount,d.content
+        FROM news n
+        INNER JOIN newsdetail d
+        on n.groupid=d.groupid
+        WHERE n.title like #{keyWords}
     </select>
+
 
     <!--SELECT-->
     <!--<include refid="newsColumn"/>-->

@@ -2,64 +2,65 @@ package cn.cout.newsapi.utils;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 
 public class ReplaceUtils {
     public static HashMap<String, Object> getRepalcesAll() {
-        LinkedHashMap<String, Object> hashMap = new LinkedHashMap<String, Object>();
+        HashMap<String, Object> hashMap = new HashMap<String, Object>();
         //已结束
-        hashMap.put("已结束", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/6ddf71147639ffcd06bf3a5358bcad71%403x.png");
+        hashMap.put("yjs", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/6ddf71147639ffcd06bf3a5358bcad71%403x.png");
         //农业银行
-        hashMap.put("农业银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/ABC%E5%86%9C%E4%B8%9A%E9%93%B6%E8%A1%8C%403x.png");
+        hashMap.put("nybank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/ABC%E5%86%9C%E4%B8%9A%E9%93%B6%E8%A1%8C%403x.png");
         //中国银行
-        hashMap.put("中国银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/Bank_Of_China%403x.png");
+        hashMap.put("zgbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/Bank_Of_China%403x.png");
         //交通银行
-        hashMap.put("交通银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/Bank_Of_Communications%403x.png");
+        hashMap.put("jtbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/Bank_Of_Communications%403x.png");
         //中信银行
-        hashMap.put("中信银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/China_Citic_Back%403x.png");
+        hashMap.put("zxbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/China_Citic_Back%403x.png");
         //中国工商银行
-        hashMap.put("中国工商银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/ICBC%403x.png");
+        hashMap.put("zggsbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/ICBC%403x.png");
         //常见问题
-        hashMap.put("常见问题", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/cjwt-pic%403x.png");
+        hashMap.put("cjwt", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/cjwt-pic%403x.png");
         //产品简介
-        hashMap.put("产品简介", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/cpjj-pic%403x.png");
+        hashMap.put("cpjj", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/cpjj-pic%403x.png");
         //管理团队
-        hashMap.put("管理团队", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/gltd-pic%403x.png");
+        hashMap.put("gltd", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/gltd-pic%403x.png");
         //公司介绍
-        hashMap.put("公司介绍", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/gsjs-pic%403x.png");
+        hashMap.put("gsjs", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/gsjs-pic%403x.png");
         //满标奖
-        hashMap.put("满标奖", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/mbj-icon%403x.png");
+        hashMap.put("mbj", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/mbj-icon%403x.png");
         //平台资质
-        hashMap.put("平台资质", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/ptzz-pic%403x.png");
+        hashMap.put("ptzz", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/ptzz-pic%403x.png");
         //平台公告
-        hashMap.put("平台公告", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/pygg-pic%403x.png");
+        hashMap.put("ptgg", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/pygg-pic%403x.png");
         //首标奖
-        hashMap.put("首标奖", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/sbj-icon%20copy%403x.png");
+        hashMap.put("sbj", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/sbj-icon%20copy%403x.png");
         //已还款
-        hashMap.put("已还款", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/yihuank-icon%403x.png");
+        hashMap.put("img_yhk", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/yihuank-icon%403x.png");
         //上海银行
-        hashMap.put("上海银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E4%B8%8A%E6%B5%B7%E9%93%B6%E8%A1%8C%281%29%403x.png");
+        hashMap.put("shbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E4%B8%8A%E6%B5%B7%E9%93%B6%E8%A1%8C%281%29%403x.png");
         //中国邮政储蓄
-        hashMap.put("中国邮政储蓄", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E4%B8%AD%E5%9B%BD%E9%82%AE%E6%94%BF%E5%82%A8%E8%93%84%403x.png");
+        hashMap.put("zgyzbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E4%B8%AD%E5%9B%BD%E9%82%AE%E6%94%BF%E5%82%A8%E8%93%84%403x.png");
         //光大银行
-        hashMap.put("光大银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%85%89%E5%A4%A7%E9%93%B6%E8%A1%8C%403x.png");
+        hashMap.put("gdbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%85%89%E5%A4%A7%E9%93%B6%E8%A1%8C%403x.png");
         //兴业银行
-        hashMap.put("兴业银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%85%B4%E4%B8%9A%E9%93%B6%E8%A1%8C%403x.png");
+        hashMap.put("xybank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%85%B4%E4%B8%9A%E9%93%B6%E8%A1%8C%403x.png");
         //北京银行
-        hashMap.put("北京银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%8C%97%E4%BA%AC%E9%93%B6%E8%A1%8C%403x.png");
+        hashMap.put("bjbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%8C%97%E4%BA%AC%E9%93%B6%E8%A1%8C%403x.png");
         //华夏银行
-        hashMap.put("华夏银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%8D%8E%E5%A4%8F%E9%93%B6%E8%A1%8C%403x.png");
+        hashMap.put("hxbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%8D%8E%E5%A4%8F%E9%93%B6%E8%A1%8C%403x.png");
         //平安银行
-        hashMap.put("平安银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%B9%B3%E5%AE%89%E9%93%B6%E8%A1%8C%403x.png");
+        hashMap.put("pabank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%B9%B3%E5%AE%89%E9%93%B6%E8%A1%8C%403x.png");
         //广发银行
-        hashMap.put("广发银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%B9%BF%E5%8F%91%403x.png");
+        hashMap.put("gfbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%B9%BF%E5%8F%91%403x.png");
         //建设银行
-        hashMap.put("建设银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%BB%BA%E8%AE%BE%E9%93%B6%E8%A1%8C%403x.png");
+        hashMap.put("jsbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E5%BB%BA%E8%AE%BE%E9%93%B6%E8%A1%8C%403x.png");
         //招商银行
-        hashMap.put("招商银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E6%8B%9B%E5%95%86%403x.png");
+        hashMap.put("zsbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E6%8B%9B%E5%95%86%403x.png");
         //民生银行
-        hashMap.put("民生银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E6%B0%91%E7%94%9F%E9%93%B6%E8%A1%8C%403x.png");
+        hashMap.put("msbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E6%B0%91%E7%94%9F%E9%93%B6%E8%A1%8C%403x.png");
         //浦发银行
-        hashMap.put("浦发银行", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E6%B5%A6%E5%8F%91%403x.png");
+        hashMap.put("pfbank", "https://jyjf-public.oss-cn-hangzhou.aliyuncs.com/common/%E6%B5%A6%E5%8F%91%403x.png");
         //投资期限
         hashMap.put("qxtz", "投资期限");
         //起购
@@ -73,9 +74,9 @@ public class ReplaceUtils {
         //还款方式
         hashMap.put("hkfs", "还款方式");
         //投资记录
-        hashMap.put("tzjl", "投资记录");
+        hashMap.put("txt_tzjl", "投资记录");
         //投资总额
-        hashMap.put("tzze", "投资总额");
+        hashMap.put("txt_tzze", "投资总额");
         //收益期限
         hashMap.put("syqx", "收益期限");
         //起投金额
@@ -158,6 +159,7 @@ public class ReplaceUtils {
         hashMap.put("txtMTBD", "媒体报道");
         //
         hashMap.put("txtCJWT", "常见问题");
+
         return hashMap;
 
     }
